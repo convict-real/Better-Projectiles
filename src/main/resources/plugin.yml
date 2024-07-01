@@ -1,7 +1,0 @@
-name: BetterProjectiles
-version: 1.0.0
-website: https://github.com/convict-real/Better-Projectiles
-main: me.swamprat22.Main
-authors: [ swamprat22 ]
-prefix: BetterProjectiles
-description: A simple plugin that makes some of the Minecraft projectiles more accurate and competitive

@@ -37,20 +37,19 @@ public class Main extends JavaPlugin implements Listener {
          Vector direction = new Vector(-Math.sin(yaw) * Math.cos(pitch), -Math.sin(pitch), Math.cos(yaw) * Math.cos(pitch)).normalize();
 
          switch (projectile.getType()) {
-         case ENDER_PEARL:
-            direction.multiply(1.25D);
+            case ENDER_PEARL:
+               direction.multiply(1.25D);
+   
+               if (player.getVelocity().length() > 0D)
+                  direction.multiply(1.25D + (player.getVelocity().length() / 10D));
+   
+               projectile.setVelocity(direction);
+               projectile.setFallDistance(0F);
+               break;
 
-            if (player.getVelocity().length() > 0D) {
-               direction.multiply(1.25D + (player.getVelocity().length() / 10D));
-            }
-
-            projectile.setVelocity(direction);
-            projectile.setFallDistance(0F);
-            break;
-
-         case FISHING_HOOK:
-            projectile.setVelocity(direction.multiply(1.5D));
-            projectile.setFallDistance(0F);
+            case FISHING_HOOK:
+               projectile.setVelocity(direction.multiply(1.5D));
+               projectile.setFallDistance(0F);
          }
       }
    }

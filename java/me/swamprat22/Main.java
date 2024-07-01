@@ -48,7 +48,9 @@ public class Main extends JavaPlugin implements Listener {
                break;
 
             case FISHING_HOOK:
-               projectile.setVelocity(direction.multiply(1.5D));
+               direction.multiply(1.5D);
+
+               projectile.setVelocity(direction);
                projectile.setFallDistance(0F);
          }
       }

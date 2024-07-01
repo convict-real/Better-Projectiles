@@ -34,7 +34,11 @@ public class Main extends JavaPlugin implements Listener {
          double yaw = Math.toRadians(preciseFloatToDouble(player.getEyeLocation().getYaw()));
          double pitch = Math.toRadians(preciseFloatToDouble(player.getEyeLocation().getPitch()));
 
-         Vector direction = new Vector(-Math.sin(yaw) * Math.cos(pitch), -Math.sin(pitch), Math.cos(yaw) * Math.cos(pitch)).normalize();
+         Vector direction = new Vector(
+            -Math.sin(yaw) * Math.cos(pitch),
+            -Math.sin(pitch),
+            Math.cos(yaw) * Math.cos(pitch)
+         ).normalize();
 
          switch (projectile.getType()) {
             case ENDER_PEARL:

@@ -232,6 +232,9 @@ public class Main extends JavaPlugin implements Listener {
 
 				projectile.setVelocity(direction);
 				break;
+				
+			default:
+				break;
 			}
 		}
 	}

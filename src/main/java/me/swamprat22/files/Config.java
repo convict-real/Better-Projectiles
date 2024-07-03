@@ -210,11 +210,11 @@ public class Config implements Initializer {
 		private double getNumber() {
 			if (value instanceof Integer)
 				return (int) value;
-			if (value instanceof Short)
+			else if (value instanceof Short)
 				return (short) value;
-			if (value instanceof Byte)
+			else if (value instanceof Byte)
 				return (byte) value;
-			if (value instanceof Float)
+			else if (value instanceof Float)
 				return (float) value;
 
 			return (double) value;

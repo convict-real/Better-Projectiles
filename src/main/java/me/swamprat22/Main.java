@@ -11,6 +11,7 @@ import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.Vector;
 
+import me.swamprat22.fastmath.FastMath;
 import me.swamprat22.files.Config;
 import me.swamprat22.files.commentedfiles.CommentedFileConfiguration;
 
@@ -46,10 +47,10 @@ public class Main extends JavaPlugin implements Listener {
 		if (shooter.getType() == EntityType.PLAYER) {
 			final Player player = (Player) projectile.getShooter();
 
-			final double yaw = Math.toRadians(Main.preciseFloatToDouble(player.getEyeLocation().getYaw()));
-			final double pitch = Math.toRadians(Main.preciseFloatToDouble(player.getEyeLocation().getPitch()));
+			final double yaw = FastMath.toRadians(Main.preciseFloatToDouble(player.getLocation().getYaw()));
+			final double pitch = FastMath.toRadians(Main.preciseFloatToDouble(player.getLocation().getPitch()));
 
-			final Vector direction = new Vector(-Math.sin(yaw) * Math.cos(pitch), -Math.sin(pitch), Math.cos(yaw) * Math.cos(pitch)).normalize();
+			final Vector direction = new Vector(-FastMath.sin(yaw) * FastMath.cos(pitch), -FastMath.sin(pitch), FastMath.cos(yaw) * FastMath.cos(pitch)).normalize();
 
 			switch (projectile.getType()) {
 			case ENDER_PEARL:
@@ -232,7 +233,7 @@ public class Main extends JavaPlugin implements Listener {
 
 				projectile.setVelocity(direction);
 				break;
-				
+
 			default:
 				break;
 			}
